@@ -3,8 +3,6 @@
   display: inline-block;
   padding: 20px;
   margin-bottom: 20px;
-  border: 10px solid rgb(244, 244, 244);
-  border-top-color: transparent;
 }
 
 .reveal .image-container img {
@@ -17,6 +15,9 @@
 
 .reveal pre code {
   background: #FFFFFF;
-  max-height: 700px;
+  max-height: 600px;
 }
 
+.reveal .controls {
+  visibility: hidden;
+}
