@@ -1,3 +1,10 @@
+# DreamForce Presentation
+
+Notes:
+
+1. It requires your viewport to be 1280x720 for the images to fit with the specs given by DreamForce.
+2. The Menu is hidden.
+
 # reveal.js [![Build Status](https://travis-ci.org/hakimel/reveal.js.png?branch=master)](https://travis-ci.org/hakimel/reveal.js)
 
 A framework for easily creating beautiful presentations using HTML. [Check out the live demo](http://lab.hakim.se/reveal-js/).
