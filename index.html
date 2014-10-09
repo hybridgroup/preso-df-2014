@@ -111,7 +111,7 @@
         </section>
 
         <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>The Basics - Blink</h2>
+          <h2>Blink</h2>
         </section>
 
         <section class="divider" data-background="images/bg-divider.jpg">
@@ -128,14 +128,11 @@
 
         <section>
           <section>
-            <h2>Basic Demo<h2>
-            <h3>Generate New Robot</h3>
-            <h3>Run Tests</h3>
-            <h3>Blink</h3>
+            <h2>Blink Demo<h2>
           </section>
 
           <section>
-            <h2>Spark Core (Featuring Cylon.js)</h2>
+            <h2>Arduino</h2>
           </section>
 
           <section>
@@ -148,15 +145,12 @@ var Cylon = require('cylon');
 
 Cylon.robot({
   connection: {
-    name: 'spark', adaptor: 'spark',
-    accessToken: 'ecc7a925d3b92bf1f9c942de25a14916a7e4a4bc',
-    deviceId: '53ff72065067544854310187'
+    name: 'blink', adaptor: 'firmata', port: '/dev/ttyACM0'
   },
 
   device: 
-    {name: 'led', driver: 'led', pin: 'D7'}
-  },
-
+    {name: 'led', driver: 'led', pin: 13},
+  
   work: function(my) {
     every((1).second(), my.led.toggle);
   }
@@ -166,7 +160,7 @@ Cylon.robot({
         </section>
 
         <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>BrewForce - The Dispenser</h2>
+          <h2>BrewForce - Tap</h2>
         </section>
 
         <section class="divider" data-background="images/bg-divider.jpg">
@@ -179,7 +173,7 @@ Cylon.robot({
 
         <section>
           <section>
-            <h2>Demo</h2>
+            <h2>Tap Demo</h2>
             <h3>Spark Core + Salesforce</h3>
           </section>
 
@@ -189,7 +183,32 @@ Cylon.robot({
 
           <section>
             <pre><code data-trim>
-// final code goes here...
+var Cylon = require('cylon');
+
+Cylon.robot({
+  connections: [
+  { name: 'spark', adaptor: 'spark',
+    accessToken: process.env.SPARK_SECURITY_TOKEN,
+    deviceId: process.env.DEVICE_ID },
+  { name: 'sf', adaptor: 'force',
+    sfuser: process.env.SF_USERNAME,
+    sfpass: process.env.SF_SECURITY_TOKEN }
+  ]
+
+  devices: [
+    { name: 'lever', driver: 'button', connection: 'spark', pin: 'D7' },
+    { name: 'salesforce', driver: 'force', connection: 'sf' }
+  ],
+
+  work: function(my) {
+    my.lever.on('push', function() {
+      var data = {tapId: process.env.DEVICE_ID, drinks: 1};
+      my.salesforce.push('/BrewforceTapController/', data);
+    });
+  }
+});
+
+Cylon.start();
             </code></pre>
           </section>
         </section>
@@ -207,14 +226,10 @@ Cylon.robot({
           <h2>Admin Tools (#7)</h2>
         </section>
 
-        <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>robeaux.io</h2>
-        </section>
-
         <section>
           <section>
-            <h2>Wearables Demo</h2>
-            <h3>Spark Core + Pebble + Salesforce</h3>
+            <h2>Wearable Demo</h2>
+            <h3>Spark Core + Pebble + Salesforce + Robeaux</h3>
           </section>
 
           <section>
@@ -228,12 +243,12 @@ Cylon.robot({
           </section>
 
           <section>
-            <h3><a href='http://192.168.1.9:8080' target="_blank">Brewforce Admin Page</a></h3>
+            <h3><a href='http://127.0.0.1:4567' target="_blank">Brewforce Admin Page</a></h3>
           </section>
         </section>
 
         <section>
-          <h2>Come To Our Workshop!</h2>
+          <h2>Come To Our Cylon.js Workshop!</h2>
           <h3>short url will go here...</h3>
         </section>
 
@@ -318,11 +333,7 @@ func main() {
         </section>
 
         <section>
-          <h2>gort.io</h2>
-        </section>
-
-        <section>
-          <h2>robotops.com</h2>
+          <h2>hybridgroup.com</h2>
         </section>
 
         <section class="divider" data-background="images/bg-thanks.jpg">
