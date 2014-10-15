@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>10 Rules Of RobotOps (robotops.com) - Dreamforce 2014</title>
+    <title>10 Rules Of RobotOps (robotOps.com) - Dreamforce 2014</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="Hakim El Hattab">
@@ -101,19 +101,6 @@
           </div>
         </section>
 
-
-        <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>It All Starts With A Customer...</h2>
-        </section>
-
-        <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>Brewforce</h2>
-        </section>
-
-        <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>Blink</h2>
-        </section>
-
         <section class="divider" data-background="images/bg-divider.jpg">
           <h2>Code Generators (#1)</h2>
         </section>
@@ -126,43 +113,6 @@
           <h2>Declarative Code Syntax (#3)</h2>
         </section>
 
-        <section>
-          <section>
-            <h2>Blink Demo<h2>
-          </section>
-
-          <section>
-            <h2>Arduino</h2>
-          </section>
-
-          <section>
-            <img src="http://localhost:8080/?action=stream">  
-          </section>
-
-          <section>
-            <pre><code data-trim>
-var Cylon = require('cylon');
-
-Cylon.robot({
-  connection: {
-    name: 'blink', adaptor: 'firmata', port: '/dev/ttyACM0'
-  },
-
-  device: 
-    {name: 'led', driver: 'led', pin: 13},
-  
-  work: function(my) {
-    every((1).second(), my.led.toggle);
-  }
-}).start();
-            </code></pre>
-          </section>
-        </section>
-
-        <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>BrewForce - Tap</h2>
-        </section>
-
         <section class="divider" data-background="images/bg-divider.jpg">
           <h2>Multiple Platforms/Devices (#4)</h2>
         </section>
@@ -171,89 +121,12 @@ Cylon.robot({
           <h2>Command Line Interface (#5)</h2>
         </section>
 
-        <section>
-          <section>
-            <h2>Tap Demo</h2>
-            <h3>Spark Core + Salesforce</h3>
-          </section>
-
-          <section>
-            <img src="http://localhost:8080/?action=stream">  
-          </section>
-
-          <section>
-            <pre><code data-trim>
-var Cylon = require('cylon');
-
-Cylon.robot({
-  connections: [
-  { name: 'spark', adaptor: 'spark',
-    accessToken: process.env.SPARK_SECURITY_TOKEN,
-    deviceId: process.env.DEVICE_ID },
-  { name: 'sf', adaptor: 'force',
-    sfuser: process.env.SF_USERNAME,
-    sfpass: process.env.SF_SECURITY_TOKEN }
-  ]
-
-  devices: [
-    { name: 'lever', driver: 'button', connection: 'spark', pin: 'D7' },
-    { name: 'salesforce', driver: 'force', connection: 'sf' }
-  ],
-
-  work: function(my) {
-    my.lever.on('push', function() {
-      var data = {tapId: process.env.DEVICE_ID, drinks: 1};
-      my.salesforce.push('/BrewforceTapController/', data);
-    });
-  }
-});
-
-Cylon.start();
-            </code></pre>
-          </section>
-        </section>
-
-
-        <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>BrewForce - Wearables</h2>
-        </section>
-
         <section class="divider" data-background="images/bg-divider.jpg">
           <h2>Built-In API (#6)</h2>
         </section>
 
         <section class="divider" data-background="images/bg-divider.jpg">
           <h2>Admin Tools (#7)</h2>
-        </section>
-
-        <section>
-          <section>
-            <h2>Wearable Demo</h2>
-            <h3>Spark Core + Pebble + Salesforce + Robeaux</h3>
-          </section>
-
-          <section>
-            <img src="http://localhost:8080/?action=stream">  
-          </section>
-
-          <section>
-            <pre><code data-trim>
-// final code goes here...
-            </code></pre>
-          </section>
-
-          <section>
-            <h3><a href='http://127.0.0.1:4567' target="_blank">Brewforce Admin Page</a></h3>
-          </section>
-        </section>
-
-        <section>
-          <h2>Come To Our Cylon.js Workshop!</h2>
-          <h3>short url will go here...</h3>
-        </section>
-
-        <section class="divider" data-background="images/bg-divider.jpg">
-          <h2>BrewForce - Drones</h2>
         </section>
 
         <section class="divider" data-background="images/bg-divider.jpg">
@@ -268,11 +141,42 @@ Cylon.start();
           <h2>Swarms (#10)</h2>
         </section>
 
+
+
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>It All Starts With A Customer...</h2>
+        </section>
+
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>Brewforce</h2>
+        </section>
+
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>Connected Devices</h2>
+        </section>
+
+
         <section>
           <section>
-            <h2>Drone Demo</h2>
-            <h3>Salesforce + Spark Core + ARDrone + OpenCV + Pebble (Featuring Cylon.js)</h3>
-            <h3>DigiSpark (Featuring Gobot)</h3>
+            <h2>Drink Dispenser Demo</h2>
+            <h3>Intel Edison + Salesforce</h3>
+          </section>
+
+          <section>
+            <img src="http://localhost:8080/?action=stream">  
+          </section>
+        </section>
+
+
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>Wearables</h2>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Wearable Demo</h2>
+            <h3>Intel Edison + Pebble + Salesforce</h3>
           </section>
 
           <section>
@@ -280,60 +184,63 @@ Cylon.start();
           </section>
 
           <section>
-            <pre><code data-trim>
-// final code will go here...
-            </code></pre>
+            <h3><a href='http://127.0.0.1:4567' target="_blank">Brewforce Admin Page</a></h3>
+          </section>
+        </section>
+
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>Robots</h2>
+        </section>
+
+        <section>
+          <section>
+            <h2>Drone Demo</h2>
+            <h3>Intel Edison + Salesforce + ARDrone + Pebble (Featuring Cylon.js)</h3>
+            <h3>DigiSpark (Featuring Gobot)</h3>
           </section>
 
           <section>
-            <pre><code data-trim>
-package main
-
-import (
-  "github.com/hybridgroup/gobot"
-  "github.com/hybridgroup/gobot/api"
-  "github.com/hybridgroup/gobot/platforms/digispark"
-  "github.com/hybridgroup/gobot/platforms/gpio"
-)
-
-func main() {
-  gbot := gobot.NewGobot()
-  api.NewAPI(gbot).Start()
-
-  digi := digispark.NewDigisparkAdaptor("digispark")
-
-  led := gpio.NewLedDriver(digi, "led", "2")
-
-  gbot.AddRobot(
-    gobot.NewRobot("digispark", []gobot.Connection{digi}, []gobot.Device{led}),
-  )
-
-  gbot.Start()
-}
-            </code></pre>
+            <img src="http://localhost:8080/?action=stream">  
           </section>
         </section>
 
-        <section>
+        <section class="divider" data-background="images/bg-divider.jpg">
           <h2>Was that fun?</h2>
         </section>
 
-        <section>
+        <section class="divider" data-background="images/bg-divider.jpg">
           <h2>Join the Robot Evolution!</h2>
         </section>
 
-        <section>
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>Workshop - 2:30P Today</h2>
+        </section>
+
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>Workshop - 10:00A Tomorrow</h2>
+        </section>
+
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>Visit Our Booth</h2>
+        </section>
+
+        <section class="divider" data-background="images/bg-divider.jpg">
           <h2>cylonjs.com</h2>
-          <h3>@cylonjs</h3>
+          <h2>@cylonjs</h2>
         </section>
 
-        <section>
+        <section class="divider" data-background="images/bg-divider.jpg">
           <h2>gobot.io</h2>
-          <h3>@gobotio</h3>
+          <h2>@gobotio</h2>
         </section>
 
-        <section>
+        <section class="divider" data-background="images/bg-divider.jpg">
+          <h2>robotOps.com</h2>
+        </section>
+
+        <section class="divider" data-background="images/bg-divider.jpg">
           <h2>hybridgroup.com</h2>
+          <h2>@hybrid_group</h2>
         </section>
 
         <section class="divider" data-background="images/bg-thanks.jpg">
